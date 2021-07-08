@@ -23,7 +23,7 @@ public class VKServer {
         vkCore = new VKCore();
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void start() throws InterruptedException {
         System.out.println("Server start...");
 
 
