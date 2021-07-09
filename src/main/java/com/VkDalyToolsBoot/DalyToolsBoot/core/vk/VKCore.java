@@ -67,8 +67,7 @@ public class VKCore {
         }
         List<Message> messages = eventsQuery
                 .execute()
-                .getMessages()
-                .getMessages();
+                .getMessages().getItems(); // getMessage()
 
         if (!messages.isEmpty()){
             try {

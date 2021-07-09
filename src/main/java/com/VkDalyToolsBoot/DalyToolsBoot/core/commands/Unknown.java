@@ -11,6 +11,6 @@ public class Unknown extends Command {
 
     @Override
     public void exec(Message message) {
-        new VKManager().sendMessege("Данная команда не существует, повторите попытку", message.getUserId());
+        new VKManager().sendMessege("Данная команда не существует, повторите попытку", message.getPeerId()); // getUserId
     }
 }

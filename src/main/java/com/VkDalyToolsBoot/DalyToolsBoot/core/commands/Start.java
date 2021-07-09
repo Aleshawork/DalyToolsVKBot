@@ -11,7 +11,7 @@ public class Start extends Command {
 
     @Override
     public void exec(Message message) {
-        new VKManager().sendMessege("Вас приветствует бот DalyTools !!!!",message.getUserId());
+        new VKManager().sendMessege("Вас приветствует бот DalyTools !!!!",message.getPeerId()); // getUserId()
 
     }
 }

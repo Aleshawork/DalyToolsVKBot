@@ -14,7 +14,7 @@ public class CommandDefinition {
     private static Logger logger = LoggerFactory.getLogger(CommandDefinition.class);
 
     public static Command getCommand(Collection<Command> comands, Message message){
-        String body = message.getBody();
+        String body = message.getText(); // getBody()
         logger.info(String.format("Get new command: %s",body));
         for( Command com :comands){
             if(com.name.equals(body.split(" ")[0])){

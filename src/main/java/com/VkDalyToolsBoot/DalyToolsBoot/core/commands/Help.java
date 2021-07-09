@@ -13,6 +13,6 @@ public class Help extends Command {
     public void exec(Message message) {
         new VKManager().sendMessege(String.format("1. %s \n2. %s",
                                                     "start - активация бота",
-                                                "help - справка по командам"),message.getUserId());
+                                                "help - справка по командам"),message.getPeerId()); // getUserId();
     }
 }
