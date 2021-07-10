@@ -1,8 +1,6 @@
 package com.VkDalyToolsBoot.DalyToolsBoot.core.modules;
 
-import com.VkDalyToolsBoot.DalyToolsBoot.core.commands.Help;
-import com.VkDalyToolsBoot.DalyToolsBoot.core.commands.Start;
-import com.VkDalyToolsBoot.DalyToolsBoot.core.commands.Unknown;
+import com.VkDalyToolsBoot.DalyToolsBoot.core.notification.commands.*;
 
 import java.util.HashSet;
 
@@ -14,6 +12,8 @@ public class ComandManager {
         commands.add(new Start("start"));
         commands.add(new Help("help"));
         commands.add(new Unknown("unknown"));
+        commands.add(new Information("about_DalyTools"));
+        commands.add(new Price("price"));
     }
 
     public static HashSet<Command> getCommands() {

@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 @Slf4j
 public class VKServer {
 
-    private Logger logger = LoggerFactory.getLogger(VKServer.class);
+    private static Logger logger = LoggerFactory.getLogger(VKServer.class);
 
     public static VKCore vkCore;
     static {
@@ -24,8 +24,8 @@ public class VKServer {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        System.out.println("Server start...");
-
+        logger.info("Server start..");
+        System.out.println("Server start ...");
 
         while (true) {
             Thread.sleep(300);

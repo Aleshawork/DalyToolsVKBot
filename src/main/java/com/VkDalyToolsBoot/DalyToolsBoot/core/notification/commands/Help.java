@@ -1,4 +1,4 @@
-package com.VkDalyToolsBoot.DalyToolsBoot.core.commands;
+package com.VkDalyToolsBoot.DalyToolsBoot.core.notification.commands;
 
 import com.VkDalyToolsBoot.DalyToolsBoot.core.modules.Command;
 import com.VkDalyToolsBoot.DalyToolsBoot.core.vk.VKManager;
@@ -13,6 +13,7 @@ public class Help extends Command {
     public void exec(Message message) {
         new VKManager().sendMessege(String.format("1. %s \n2. %s",
                                                     "start - активация бота",
-                                                "help - справка по командам"),message.getPeerId()); // getUserId();
+                                                "help - справка по командам")
+                ,message.getPeerId());
     }
 }

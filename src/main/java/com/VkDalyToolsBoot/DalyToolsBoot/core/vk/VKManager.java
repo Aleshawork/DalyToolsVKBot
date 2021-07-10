@@ -26,20 +26,47 @@ public class VKManager {
         }
     }
 
+    public void sendInformation(String messege,int peerId,String media){
+        if(messege!=null){
+            logger.info("Messege is null ...");
+        }
+        try{
+            vkCore.getVk().messages()
+                    .send(vkCore.getActor())
+                    .peerId(peerId)
+                    .attachment(media) // медиа находится на странице сообщества
+                    .message(messege)
+                    .randomId((int) new Date().getTime())
+                    .execute();
+
+        } catch (ApiException e) {
+            e.printStackTrace();
+        } catch (ClientException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void sendMessege(String messege,int peerId){
 
         if(messege==null){
-            logger.info("message is null ...");
+            logger.info("Message is null ...");
         }
 
         try{
+            // отпрака сообщения без клавиатуры
             //vkCore.getVk().messages().send(vkCore.getActor()).peerId(peerId).message(messege).randomId((int) new Date().getTime()).execute();
+
+            // добавляем клавиатуру, которая отправляется при каждом messege
             vkCore.getVk().messages().send(vkCore.getActor()).peerId(peerId).message(messege).randomId((int) new Date().getTime()).keyboard(new Keyboard().setButtons(
-                     List.of( List.of(new KeyboardButton().setColor(KeyboardButtonColor.DEFAULT)
-                            .setAction(new KeyboardButtonAction().setLabel("help").setType(TemplateActionTypeNames.TEXT)),
+                     List.of( List.of(
+                             new KeyboardButton().setColor(KeyboardButtonColor.PRIMARY)
+                                .setAction(new KeyboardButtonAction().setLabel("help").setType(TemplateActionTypeNames.TEXT)),
                              new KeyboardButton().setColor(KeyboardButtonColor.DEFAULT)
-                                     .setAction(new KeyboardButtonAction().setLabel("weather").setType(TemplateActionTypeNames.TEXT))))
-            )).execute();
+                                     .setAction(new KeyboardButtonAction().setLabel("about_DalyTools").setType(TemplateActionTypeNames.TEXT)),
+                             new KeyboardButton().setColor(KeyboardButtonColor.POSITIVE)
+                                     .setAction(new KeyboardButtonAction().setLabel("price").setType(TemplateActionTypeNames.TEXT))
+
+            )))).execute();
         } catch (ApiException e) {
             e.printStackTrace();
         } catch (ClientException e) {

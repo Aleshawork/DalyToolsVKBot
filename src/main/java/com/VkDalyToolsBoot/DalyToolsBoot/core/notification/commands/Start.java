@@ -1,4 +1,4 @@
-package com.VkDalyToolsBoot.DalyToolsBoot.core.commands;
+package com.VkDalyToolsBoot.DalyToolsBoot.core.notification.commands;
 
 import com.VkDalyToolsBoot.DalyToolsBoot.core.modules.Command;
 import com.VkDalyToolsBoot.DalyToolsBoot.core.vk.VKManager;
@@ -11,7 +11,8 @@ public class Start extends Command {
 
     @Override
     public void exec(Message message) {
-        new VKManager().sendMessege("Вас приветствует бот DalyTools !!!!",message.getPeerId()); // getUserId()
+        new VKManager().sendMessege("Вас приветствует бот DalyTools !!!!"
+                ,message.getPeerId());
 
     }
 }
