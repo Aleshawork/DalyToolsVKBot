@@ -1,5 +1,6 @@
 package com.VkDalyToolsBoot.DalyToolsBoot.core.vk;
 
+import com.VkDalyToolsBoot.DalyToolsBoot.core.notification.ServiceCommands.ServiceDto.ServiceDtoObject;
 import com.vk.api.sdk.client.TransportClient;
 import com.vk.api.sdk.client.VkApiClient;
 import com.vk.api.sdk.client.actors.GroupActor;
@@ -12,6 +13,7 @@ import com.vk.api.sdk.queries.messages.MessagesGetLongPollHistoryQuery;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -57,6 +59,7 @@ public class VKCore {
     public GroupActor getActor() {
         return actor;
     }
+
 
     public Message getMessage() throws ClientException, ApiException {
         MessagesGetLongPollHistoryQuery eventsQuery = vk.messages()

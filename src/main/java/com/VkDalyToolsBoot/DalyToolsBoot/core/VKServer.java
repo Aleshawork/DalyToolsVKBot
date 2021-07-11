@@ -8,7 +8,6 @@ import com.vk.api.sdk.objects.messages.Message;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -26,6 +25,7 @@ public class VKServer {
     public static void main(String[] args) throws InterruptedException {
         logger.info("Server start..");
         System.out.println("Server start ...");
+
 
         while (true) {
             Thread.sleep(300);
@@ -48,6 +48,8 @@ public class VKServer {
 
             }
         }
+
+
 
 
     }
