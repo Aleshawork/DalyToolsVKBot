@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 
-@Slf4j
+
 public class CommandDefinition {
 
     private static Logger logger = LoggerFactory.getLogger(CommandDefinition.class);
@@ -24,6 +24,7 @@ public class CommandDefinition {
             }
         }
 
+        logger.warn(String.format("Get unknown command: %s",body));
         return  new Unknown("unknown");
     }
 }

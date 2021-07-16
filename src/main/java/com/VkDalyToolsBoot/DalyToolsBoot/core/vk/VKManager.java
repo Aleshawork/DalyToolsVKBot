@@ -135,7 +135,7 @@ public class VKManager {
                             gson.toJson(ServiceCommandExecuter.getDateParam(vkCore,peerId))
                             ,ContentType.APPLICATION_JSON)
                     .setHeader("Authorization","Bearer "+accessToken)
-                    .setHeader("Content-Type","application/json;charset=cp1251")
+                    .setHeader("Content-Type","application/json;charset=utf-8")
                     .execute().returnContent();
 
 

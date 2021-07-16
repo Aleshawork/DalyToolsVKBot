@@ -10,14 +10,20 @@ import java.util.Date;
 
 public class ServiceCommandExecuter {
 
+    private final static String LOGIN_MESSAGE ="Для входа введите login и password от вашего аккаунта\n\n"+
+            "Вводимая строка должна соответстваовать шаблону:\n\nenter: login password";
+    private final static   String DATA_MESSAGE = "Введите дату\n\nВводимая дата должна соответстваовать шаблону:\n\ndate: year-month-day";
+
+
     public static ServiceDtoObject getLoginParam(VKCore vkCore, int peerId){
+
 
         try {
             while(true) {
                 vkCore.getVk().messages()
                         .send(vkCore.getActor())
                         .peerId(peerId)
-                        .message("Введите login и password от вашего аккаунта\n/-/-/-/-/-/-/-/-/-/-/-\nВводимая строка должна соответстваовать шаблону:\n\nEnter: login password")
+                        .message(LOGIN_MESSAGE)
                         .randomId((int) new Date().getTime())
                         .execute();
                 Message message = null;
@@ -53,7 +59,7 @@ public class ServiceCommandExecuter {
                 vkCore.getVk().messages()
                         .send(vkCore.getActor())
                         .peerId(peerId)
-                        .message("Введите дату\n/-/-/-/-/-/-/-/-/-/-/-\nВводимая дата должна соответстваовать шаблону:\n\nDate: year-month-day")
+                        .message(DATA_MESSAGE)
                         .randomId((int) new Date().getTime())
                         .execute();
                 Message message = null;

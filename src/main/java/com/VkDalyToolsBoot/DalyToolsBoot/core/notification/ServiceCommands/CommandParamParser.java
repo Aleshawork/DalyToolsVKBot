@@ -9,11 +9,11 @@ public class CommandParamParser {
     public static ServiceDtoObject parseParam(String stroka){
 
         // Enter: AlexeyBorisov password
-        if(stroka.contains("Enter: ")){
+        if(stroka.contains("enter: ")){
             return  new LoginDto(stroka.split(" ")[1],stroka.split(" ")[2]);
         }
         // Date: year.month.day
-        else if(stroka.contains("Date: ")){
+        else if(stroka.contains("date: ")){
             return  new DateDto(stroka.split(" ")[1],0,"0");
         }
         else {

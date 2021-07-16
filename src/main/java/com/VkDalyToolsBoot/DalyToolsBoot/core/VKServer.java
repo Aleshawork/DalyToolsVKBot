@@ -12,7 +12,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
-@Slf4j
+
 public class VKServer {
 
     private static Logger logger = LoggerFactory.getLogger(VKServer.class);
@@ -24,8 +24,6 @@ public class VKServer {
 
     public static void main(String[] args) throws InterruptedException {
         logger.info("Server start..");
-        System.out.println("Server start ...");
-
 
         while (true) {
             Thread.sleep(300);
@@ -37,9 +35,8 @@ public class VKServer {
                     exec.execute(new Messenger(message));
                 }
             } catch (ClientException | ApiException e) {
-                System.out.println("Возникли проблемы");
                 final int RECONNECT_TIME = 10000;
-                System.out.println("Повторное соединение через " + RECONNECT_TIME / 1000 + " секунд");
+                logger.warn(String.format("Возникли проблемы, повторное соединениеи через %d секунд",RECONNECT_TIME));
                 try {
                     Thread.sleep(RECONNECT_TIME);
                 } catch (InterruptedException interruptedException) {
